@@ -1,4 +1,4 @@
-package com.example.businesscard.main.ui.theme
+package com.example.businesscard.result.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

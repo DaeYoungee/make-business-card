@@ -24,7 +24,10 @@ import com.example.businesscard.main.MainViewModel
 
 @Composable
 @Preview(showBackground = true)
-fun MainScreen(viewModel: MainViewModel= hiltViewModel()) {
+fun MainScreen(
+    startResultActivity: (String, String) -> Unit = { _, _ -> },
+    viewModel: MainViewModel = hiltViewModel(),
+) {
 
     val name = viewModel.name.collectAsStateWithLifecycle().value
     val phone = viewModel.phone.collectAsStateWithLifecycle().value
@@ -46,7 +49,11 @@ fun MainScreen(viewModel: MainViewModel= hiltViewModel()) {
             onValueChange = viewModel::setPhone,
         )
         Spacer(modifier = Modifier.height(24.dp))
-        Button(modifier = Modifier.fillMaxWidth(0.9f), onClick = {}, shape = RoundedCornerShape(12.dp)) {
+        Button(
+            modifier = Modifier.fillMaxWidth(0.9f),
+            onClick = { startResultActivity(name, phone) },
+            shape = RoundedCornerShape(12.dp)
+        ) {
             Text(text = "명함 만들기")
         }
     }
@@ -58,6 +65,9 @@ fun Input(placeholder: String, value: String, onValueChange: (String) -> Unit) {
     Row(modifier = Modifier, verticalAlignment = Alignment.CenterVertically) {
         Text(text = placeholder)
         Spacer(modifier = Modifier.width(12.dp))
-        OutlinedTextField(value = value, onValueChange = onValueChange, placeholder = { Text(text = placeholder, color = Color.LightGray) })
+        OutlinedTextField(
+            value = value,
+            onValueChange = onValueChange,
+            placeholder = { Text(text = placeholder, color = Color.LightGray) })
     }
 }
