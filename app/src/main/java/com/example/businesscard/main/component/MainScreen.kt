@@ -51,7 +51,13 @@ fun MainScreen(
         Spacer(modifier = Modifier.height(24.dp))
         Button(
             modifier = Modifier.fillMaxWidth(0.9f),
-            onClick = { startResultActivity(name, phone) },
+            onClick = {
+                if (viewModel.validatePhone(phone).not()) {
+                    viewModel.showToastMsg("실패")
+                    return@Button
+                }
+                viewModel.showToastMsg("성공")
+                startResultActivity(name, phone) },
             shape = RoundedCornerShape(12.dp)
         ) {
             Text(text = "명함 만들기")
