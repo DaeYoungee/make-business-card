@@ -9,6 +9,7 @@ import com.example.businesscard.activity0.screen.Activity0Screen
 import com.example.businesscard.activity0.ui.theme.MyApplicationTheme
 import com.example.businesscard.activity1.Activity1
 import com.example.businesscard.activity3.Activity3
+import com.example.businesscard.activity5.Activity5
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,7 +19,7 @@ class Activity0 : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MyApplicationTheme {
-                Activity0Screen(startActivity1 = ::startActivity1, startActivity3 = ::startActivity3)
+                Activity0Screen(startActivity1 = ::startActivity1, startActivity3 = ::startActivity3, startActivity5 = ::startActivity5)
             }
         }
     }
@@ -29,6 +30,10 @@ class Activity0 : ComponentActivity() {
     }
     fun startActivity3() {
         val intent = Intent(this, Activity3::class.java)
+        startActivity(intent)
+    }
+    fun startActivity5() {
+        val intent = Intent(this, Activity5::class.java)
         startActivity(intent)
     }
 }

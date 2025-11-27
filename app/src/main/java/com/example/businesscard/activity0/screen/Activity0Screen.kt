@@ -10,7 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun Activity0Screen(startActivity1: () -> Unit, startActivity3: () -> Unit ) {
+fun Activity0Screen(startActivity1: () -> Unit, startActivity3: () -> Unit, startActivity5: () -> Unit ) {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -23,5 +23,9 @@ fun Activity0Screen(startActivity1: () -> Unit, startActivity3: () -> Unit ) {
         Button(
             onClick = { startActivity3() }
         ) { Text(text = "startActivity_3") }
+
+        Button(
+            onClick = { startActivity5() }
+        ) { Text(text = "startActivity_5") }
     }
 }
