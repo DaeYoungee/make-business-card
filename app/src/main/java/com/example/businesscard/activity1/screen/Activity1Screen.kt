@@ -24,9 +24,12 @@ fun Activity1Screen(startActivity2: () -> Unit, viewModel: OneViewModel = hiltVi
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        /* 잠시 제거
         Text(text = "hint: ${viewModel.rValue}")
+        */
         OutlinedTextField(
-            placeholder = { Text(text = viewModel.rValue) },
+            /* 잠시 제거 */
+//            placeholder = { Text(text = viewModel.rValue) },
             singleLine = true,
             value = input,
             onValueChange = { viewModel.setInput(it) },

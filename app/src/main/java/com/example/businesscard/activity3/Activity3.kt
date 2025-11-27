@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -26,7 +27,6 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class Activity3 : ComponentActivity() {
-    // ====== JNI 메서드 선언 (count 관련 전부 native) ======
     external fun nativeIncrement()
     external fun nativeGetCount(): Int
 
@@ -37,13 +37,11 @@ class Activity3 : ComponentActivity() {
 
         enableEdgeToEdge()
         // 네이티브 count 초기화
-
         val initialCount = nativeGetCount()
 
         setContent {
-            // 네가 쓰고 있는 테마로 교체 가능
-            // MyApplicationTheme {
-            var count by remember { mutableStateOf(initialCount) }
+
+            var count by remember { mutableIntStateOf(initialCount) }
 
             Column(
                 modifier = Modifier
@@ -63,8 +61,7 @@ class Activity3 : ComponentActivity() {
                         val newCount = nativeGetCount()
                         count = newCount
 
-//                        if (newCount > 10_000) {
-                        if (newCount > 10) {
+                        if (newCount > 10_000) {
                             startActivity(Intent(this@Activity3, Activity4::class.java))
                         }
                     }
