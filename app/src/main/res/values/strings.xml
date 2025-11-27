@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">daeyoungAab</string>
     <string name="title_activity_result">ResultActivity</string>
+    <string name="title_activity_0">Activity0</string>
+    <string name="title_activity_1">Activity1</string>
+    <string name="title_activity_acticity1">Acticity1</string>
+    <string name="title_activity_3">Activity3</string>
+    <string name="title_activity_4">Activity4</string>
 </resources>

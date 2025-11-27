@@ -10,6 +10,7 @@ plugins {
 android {
     namespace = "com.example.businesscard"
     compileSdk = 36
+    ndkVersion = "29.0.14206865"
 
     defaultConfig {
         applicationId = "com.example.businesscard"
@@ -43,6 +44,12 @@ android {
     }
     hilt {
         enableAggregatingTask = false
+    }
+
+    externalNativeBuild {
+        ndkBuild {
+            path("src/main/cpp/Android.mk")
+        }
     }
 }
 
